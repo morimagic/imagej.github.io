@@ -364,7 +364,7 @@ Fill distances must be interpreted as  ‘likelihood distances’.
 
 The smallest distance  corresponds to a perfect match to whatever information the filler has on the center-line of the traced path, and the highest distance correspond to the _worst_ match. When a threshold is set, pixels are clustered into two groups: those that ‘fill’ the path and those above threshold that don't.
 
-Note that *likelihood distances* are under an arbitrary range. Consider a scale ranging from ]0 to 1]: If the threshold distance is set at 0.2, paths are only ‘filled’ with voxels that share at least 80% *likelihood* with the traced center-lines. In practice, the upper limit of this distance depends on much of the image has been explored by the algorithm. Thus, it is not trivial to define _a priori_ a sensible threshold. It should be  assumed that the range of possible distances falls between 0 (perfect likelihood, i.e., center-line voxels themselves) and a _maximum_ corresponding to the most distinct voxel to the path center-line. Such voxel of "maximum difference" is expected to belong to the image background (unlabeled neurite). Distances can be studied by exporting fills as [Distance maps](#v-exporting).
+Note that *likelihood distances* are under an arbitrary range. Consider a scale ranging from ]0 to 1]: If the threshold distance is set at 0.2, paths are only ‘filled’ with voxels that share at least 80% *likelihood* with the traced center-lines. In practice, the upper limit of this distance depends on much of the image has been explored by the algorithm. Thus, it is not trivial to define _a priori_ a sensible threshold. It should be  assumed that the range of possible distances falls between 0 (perfect likelihood, i.e., center-line voxels themselves) and a _maximum_ corresponding to the most distinct voxel to the path center-line. Such voxel of "maximum difference" is expected to belong to the image background (uned neurite). Distances can be studied by exporting fills as [Distance maps](#v-exporting).
 
 While adjusting the _distance threshold_ is the single most effective way to improve 'fills', other approaches can also improve the result:
 
@@ -388,14 +388,14 @@ If the search is still active, you might as well click "Pause" so halt explorati
 
   - Grayscale: Only the points in the fill are preserved under the original pixel intensities. This is useful to e.g., render the structure in the [legacy 3D Viewer](/plugins/3d-viewer) or [sciview](/plugins/sciview) to do a surface rendering of the neuron.
 
-  - Labels: Each fill gets assigned a unique pixel value, so that all paths are distinguishable from each other.
+  - Labels: Each tree (group of paths) gets assigned a unique pixel value so that such groups are distinguishable from each other. Note that scripting can be used to extend this option to individual paths so that each path in a group gets assigned a unique label (see the *Fill_Demo.py* script and this [discussion](https://forum.image.sc/t/batch-filling-in-snt/58733/7) for details)
 
   - Annotated Distance map: Points along the fill are assigned the _explored distance_ as described earlier. Useful for debugging and/or perusing the fill operation
 
   - CSV export: Exports details of the filling operation as tabular data. This includes [distance thresholds](#iii-understanding-fill-distances-and-distance-threshold), algorithms used, and volumes of filled paths
 
 <div align="center">
-  <img src="/media/plugins/snt/filling-output-examples.png" title="Fill Manager export options. Properties of fills can also be exported to CSV files." width="850" />
+  <img src="/media/plugins/snt/filling-output-examples.png" title="Fill Manager export options as demoed by the Fill_Demo.py script. Properties of fills can also be exported to CSV files." width="850" />
 </div>
 
 {% capture text%}
