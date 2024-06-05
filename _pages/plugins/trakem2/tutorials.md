@@ -5,7 +5,7 @@ title: TrakEM2 tutorials
 
 ## Video tutorial on 3D reconstruction from serial section
 
-{% include video platform='switchtube' id='c3f982f2' %}
+{% include video platform='switchtube' id='yr9Msnn8h0' %}
 
 ## Video tutorial on the basic recipe for TrakEM2
 
